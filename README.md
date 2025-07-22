@@ -20,6 +20,7 @@ The method extends a classic `doc2vec`-style shallow neural encoder by introduci
 
 ## Method Overview
 
+![Model architecture](./Detailed_architecture_e.pdf)
 During training, the model takes as input:
 
 - A document ID and  
