@@ -50,3 +50,31 @@ In parallel, the distribution of document embeddings is regularized toward a mul
 
 ## Repository Structure
 
+common/
+np.py # Wrapper for numpy/cupy (switches based on config.GPU)
+
+config/
+config.py # Global settings (e.g., GPU=True/False)
+
+models/
+init.py
+doc2dr.py # Main Doc2DR model (doc2vec-based encoder)
+embedding.py # Embedding and EmbeddingDot layers
+loss.py # Loss functions (NegativeSamplingLoss, disentangled_loss, etc.)
+scheduler.py # Learning rate / annealing scheduler
+
+scripts/
+train_doc2dr.py # Training entry script
+
+trainers/
+init.py
+trainer.py # Training loop, logging, plotting
+
+utils/
+init.py
+data.py # Data preprocessing (contexts, targets, to_cpu/to_gpu, etc.)
+math_utils.py # KL divergence, cross-entropy, grad clipping
+optimizers.py # Optimizer implementations (e.g., Adam)
+sampler.py # UnigramSampler, genreSampler
+
+traindata_reviewWord500_param.pkl # Example dataset (preprocessed)
