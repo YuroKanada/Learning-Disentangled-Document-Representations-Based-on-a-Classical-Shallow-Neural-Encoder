@@ -50,31 +50,31 @@ In parallel, the distribution of document embeddings is regularized toward a mul
 
 ## Repository Structure
 
-common/
-np.py # Wrapper for numpy/cupy (switches based on config.GPU)
+- **common/**
+  - `np.py` – unified NumPy/CuPy interface  
 
-config/
-config.py # Global settings (e.g., GPU=True/False)
+- **config/**
+  - `config.py` – global configuration (e.g., GPU flag)  
 
-models/
-init.py
-doc2dr.py # Main Doc2DR model (doc2vec-based encoder)
-embedding.py # Embedding and EmbeddingDot layers
-loss.py # Loss functions (NegativeSamplingLoss, disentangled_loss, etc.)
-scheduler.py # Learning rate / annealing scheduler
+- **models/**
+  - `__init__.py`
+  - `doc2dr.py` – main Doc2DR model implementation  
+  - `embedding.py` – embedding layers  
+  - `loss.py` – loss functions (NegativeSamplingLoss, disentangled_loss, etc.)  
+  - `scheduler.py` – SigmoidAnnealingScheduler  
 
-scripts/
-train_doc2dr.py # Training entry script
+- **scripts/**
+  - `train_doc2dr.py` – training entry script  
 
-trainers/
-init.py
-trainer.py # Training loop, logging, plotting
+- **trainers/**
+  - `__init__.py`
+  - `trainer.py` – training loop and utilities  
 
-utils/
-init.py
-data.py # Data preprocessing (contexts, targets, to_cpu/to_gpu, etc.)
-math_utils.py # KL divergence, cross-entropy, grad clipping
-optimizers.py # Optimizer implementations (e.g., Adam)
-sampler.py # UnigramSampler, genreSampler
+- **utils/**
+  - `__init__.py`
+  - `data.py` – data preprocessing (create contexts/targets, etc.)  
+  - `math_utils.py` – mathematical utilities (KL divergence, etc.)  
+  - `optimizers.py` – Adam optimizer  
+  - `sampler.py` – unigram and genre samplers  
 
-traindata_reviewWord500_param.pkl # Example dataset (preprocessed)
+- **traindata_reviewWord500_param.pkl** – example preprocessed dataset (pickle)
